@@ -86,6 +86,45 @@ namespace DataStructures
             return null;
         }
 
+        public void DeleteAtPosition(int position)
+        {
+            if (position < 1)
+            {
+                Console.Write("\nPosition should be Greater or Equal to 1");
+            }
+            else if (position == 1 && head != null)
+            {
+                Node nodeToDelete = head;
+                head = head.next;
+                nodeToDelete = null;
+                
+
+            }
+            else
+            {
+                Node temp = new Node(position);
+                temp = head;
+                for (int i = 1; i < position - 1; i++)
+                {
+                    if (temp != null)
+                    {
+                        temp = temp.next;
+                    }
+                }
+                if (temp != null && temp.next != null)
+                {
+                    Node nodeToDelete = temp.next;
+                    temp.next = temp.next.next;
+                    nodeToDelete = null;
+                }
+                else
+                {
+                    Console.Write("\nThe node is already null");
+                }
+            }
+            Console.Write($"\n40 has been Deleted from position {position} ");
+        }
+
         public void Display()
         {
             Node temp = this.head;

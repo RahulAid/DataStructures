@@ -14,6 +14,7 @@ namespace DataStructures
             objLinkedList.Add(70);
             objLinkedList.Search(30);
             objLinkedList.InsertNewNumber(40);
+            objLinkedList.DeleteAtPosition(3);
             objLinkedList.Display();
             
 
