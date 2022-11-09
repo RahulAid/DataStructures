@@ -28,25 +28,22 @@ namespace DataStructures
             }
             Console.WriteLine($"\n{objNode.data} inserted into Linked List");
         }
-
         
-        public void DeleteLastElement()
+        public Node Search(int value)
         {
-            if (head == null)
+            int position = 1;
+            Node headValue = this.head;
+            while (headValue != null)
             {
-                Console.WriteLine("\nLinked List Empty");
+                if (headValue.data == value)
+                {
+                    Console.WriteLine($"\nInput {value} is at {position}");
+                    return headValue;
+                }
+                position++;
+                headValue = headValue.next;
             }
-            if (head.next == null)
-            {
-                Console.WriteLine("\nLinked List Empty");
-            }
-            Node objNew_Node = head;
-            while (objNew_Node.next.next != null)
-            {
-                objNew_Node = objNew_Node.next;
-            }
-            objNew_Node.next = null;
-            Console.WriteLine("\nRemoved Last Node");
+            return null;
         }
 
         public void Display()

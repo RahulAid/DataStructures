@@ -10,12 +10,10 @@ namespace DataStructures
 
             LinkedList objLinkedList = new LinkedList();
             objLinkedList.Add(56);
-            objLinkedList.Add(36);
+            objLinkedList.Add(30);
             objLinkedList.Add(70);
-            objLinkedList.DeleteLastElement();
+            objLinkedList.Search(30);
             objLinkedList.Display();
-
-            Console.ReadLine();
 
             Console.ReadLine();
         }
