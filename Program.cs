@@ -12,8 +12,10 @@ namespace DataStructures
             objLinkedList.Add(56);
             objLinkedList.Add(36);
             objLinkedList.Add(70);
-            objLinkedList.DeleteFirstElement();
+            objLinkedList.DeleteLastElement();
             objLinkedList.Display();
+
+            Console.ReadLine();
 
             Console.ReadLine();
         }

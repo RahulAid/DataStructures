@@ -29,54 +29,24 @@ namespace DataStructures
             Console.WriteLine($"\n{objNode.data} inserted into Linked List");
         }
 
-        public void InsertBetween(int new_data)
+        
+        public void DeleteLastElement()
         {
-            int position = 2;
-            Node objnew_Node = new Node(new_data);
-            objnew_Node.data = new_data;
-            objnew_Node.next = null;
-
-            if (position < 1)
+            if (head == null)
             {
-                Console.Write("\nposition should be Greater or Equal to 1");
+                Console.WriteLine("\nLinked List Empty");
             }
-            else if (position == 1)
+            if (head.next == null)
             {
-                objnew_Node.next = this.head;
-                this.head = objnew_Node;
+                Console.WriteLine("\nLinked List Empty");
             }
-            else
+            Node objNew_Node = head;
+            while (objNew_Node.next.next != null)
             {
-                Node temp = new Node(new_data);
-                temp = this.head;
-                for (int i = 1; i < position - 1; i++)
-                {
-                    if (temp != null)
-                    {
-                        temp = temp.next;
-                    }
-                }
-                if (temp != null)
-                {
-                    objnew_Node.next = temp.next;
-                    temp.next = objnew_Node;
-                }
-                else
-                {
-                    Console.Write("\nThe previous node is null.");
-                }
+                objNew_Node = objNew_Node.next;
             }
-            Console.WriteLine($"\n{objnew_Node.data} inserted at position {position}");
-        }
-
-        public void DeleteFirstElement()
-        {
-            if (this.head == null)
-            {
-                Console.WriteLine("\nList is Empty");
-            }
-            this.head = this.head.next;
-            Console.WriteLine("\nRemoved first node");
+            objNew_Node.next = null;
+            Console.WriteLine("\nRemoved Last Node");
         }
 
         public void Display()
