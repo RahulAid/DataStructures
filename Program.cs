@@ -11,10 +11,9 @@ namespace DataStructures
             LinkedList objLinkedList = new LinkedList();
             objLinkedList.Add(56);
             objLinkedList.Add(30);
-            objLinkedList.Add(70);
-            objLinkedList.Search(30);
-            objLinkedList.InsertNewNumber(40);
-            objLinkedList.DeleteAtPosition(3);
+            objLinkedList.Add(40);
+            objLinkedList.Add(70);           
+            objLinkedList.sortList();
             objLinkedList.Display();
             
 

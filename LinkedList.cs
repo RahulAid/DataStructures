@@ -27,102 +27,34 @@ namespace DataStructures
                 temp.next = objNode;
             }
             Console.WriteLine($"\n{objNode.data} is inserted into Linked List");
-        }
+        }       
 
-        public void InsertNewNumber(int new_number)
+        public void sortList()
         {
-            int position = 3;
-            Node objnew_Node = new Node(new_number);
-            objnew_Node.data = new_number;
-            objnew_Node.next = null;
-
-            if (position < 1)
+            Node current = head;
+            Node? index = null;
+            if (head == null)
             {
-                Console.Write("\nPosition should be Greater or Equal to 1");
-            }
-            else if (position == 1)
-            {
-                objnew_Node.next = this.head;
-                this.head = objnew_Node;
+                return;
             }
             else
             {
-                Node temp = new Node(new_number);
-                temp = this.head;
-                for (int i = 1; i < position - 1; i++)
+                while (current != null)
                 {
-                    if (temp != null)
+                    index = current.next;
+                    while (index != null)
                     {
-                        temp = temp.next;
+                        if (current.data > index.data)
+                        {
+                            int temp = current.data;
+                            current.data = index.data;
+                            index.data = temp;
+                        }
+                        index = index.next;
                     }
-                }
-                if (temp != null)
-                {
-                    objnew_Node.next = temp.next;
-                    temp.next = objnew_Node;
-                }
-                else
-                {
-                    Console.Write("\nThe previous node is null.");
+                    current = current.next;
                 }
             }
-            Console.WriteLine($"\n{objnew_Node.data} is inserted at position {position}");
-        }
-
-        public Node Search(int value)
-        {
-            int position = 1;
-            Node headValue = this.head;
-            while (headValue != null)
-            {
-                if (headValue.data == value)
-                {
-                    Console.WriteLine($"\nInput {value} is present at position {position}");
-                    return headValue;
-                }
-                position++;
-                headValue = headValue.next;
-            }
-            return null;
-        }
-
-        public void DeleteAtPosition(int position)
-        {
-            if (position < 1)
-            {
-                Console.Write("\nPosition should be Greater or Equal to 1");
-            }
-            else if (position == 1 && head != null)
-            {
-                Node nodeToDelete = head;
-                head = head.next;
-                nodeToDelete = null;
-                
-
-            }
-            else
-            {
-                Node temp = new Node(position);
-                temp = head;
-                for (int i = 1; i < position - 1; i++)
-                {
-                    if (temp != null)
-                    {
-                        temp = temp.next;
-                    }
-                }
-                if (temp != null && temp.next != null)
-                {
-                    Node nodeToDelete = temp.next;
-                    temp.next = temp.next.next;
-                    nodeToDelete = null;
-                }
-                else
-                {
-                    Console.Write("\nThe node is already null");
-                }
-            }
-            Console.Write($"\n40 has been Deleted from position {position} ");
         }
 
         public void Display()
@@ -133,10 +65,10 @@ namespace DataStructures
                 Console.WriteLine("\nLinkedList is empty");
                 return;
             }
-            Console.Write("\nLinked List  ");
+            Console.Write("\nSorted Linked List : ");
             while (temp != null)
             {
-                Console.Write(temp.data + " ");
+                Console.Write( temp.data + " ");
                 temp = temp.next;
             }
         }
