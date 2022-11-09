@@ -26,9 +26,49 @@ namespace DataStructures
                 }
                 temp.next = objNode;
             }
-            Console.WriteLine($"\n{objNode.data} inserted into Linked List");
+            Console.WriteLine($"\n{objNode.data} is inserted into Linked List");
         }
-        
+
+        public void InsertNewNumber(int new_number)
+        {
+            int position = 3;
+            Node objnew_Node = new Node(new_number);
+            objnew_Node.data = new_number;
+            objnew_Node.next = null;
+
+            if (position < 1)
+            {
+                Console.Write("\nPosition should be Greater or Equal to 1");
+            }
+            else if (position == 1)
+            {
+                objnew_Node.next = this.head;
+                this.head = objnew_Node;
+            }
+            else
+            {
+                Node temp = new Node(new_number);
+                temp = this.head;
+                for (int i = 1; i < position - 1; i++)
+                {
+                    if (temp != null)
+                    {
+                        temp = temp.next;
+                    }
+                }
+                if (temp != null)
+                {
+                    objnew_Node.next = temp.next;
+                    temp.next = objnew_Node;
+                }
+                else
+                {
+                    Console.Write("\nThe previous node is null.");
+                }
+            }
+            Console.WriteLine($"\n{objnew_Node.data} is inserted at position {position}");
+        }
+
         public Node Search(int value)
         {
             int position = 1;
@@ -37,7 +77,7 @@ namespace DataStructures
             {
                 if (headValue.data == value)
                 {
-                    Console.WriteLine($"\nInput {value} is at {position}");
+                    Console.WriteLine($"\nInput {value} is present at position {position}");
                     return headValue;
                 }
                 position++;
