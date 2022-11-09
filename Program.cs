@@ -6,7 +6,7 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to LinkedList");
+            Console.WriteLine("Welcome to LinkedList Program");
 
             LinkedList objLinkedList = new LinkedList();
             objLinkedList.Add(56);
