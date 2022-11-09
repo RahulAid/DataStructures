@@ -26,7 +26,16 @@ namespace DataStructures
                 }
                 temp.next = objNode;
             }
-            Console.WriteLine($"\n{objNode.data} inserted into Linked List");
+            Console.WriteLine($"\n{objNode.data} is inserted into Linked List");
+        }
+
+        public void InsertFront(int new_data)
+        {
+
+            Node objnew_node = new Node(new_data);
+            objnew_node.next = this.head;
+            this.head = objnew_node;
+            Console.WriteLine($"\n{objnew_node.data} is added at front");
         }
 
         public void Display()
