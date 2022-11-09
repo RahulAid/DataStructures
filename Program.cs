@@ -9,9 +9,9 @@ namespace DataStructures
             Console.WriteLine("Welcome to LinkedList Program");
 
             LinkedList objLinkedList = new LinkedList();
-            objLinkedList.Add(70);
-            objLinkedList.InsertFront(30);
-            objLinkedList.InsertFront(56);
+            objLinkedList.Add(56);
+            objLinkedList.InsertLast(30);
+            objLinkedList.InsertLast(70);
             objLinkedList.Display();
 
             Console.ReadLine();
