@@ -38,7 +38,7 @@ namespace DataStructures
 
             if (position < 1)
             {
-                Console.Write("\nposition should be >= 1.");
+                Console.Write("\nposition should be Greater or Equal to 1");
             }
             else if (position == 1)
             {
@@ -63,10 +63,20 @@ namespace DataStructures
                 }
                 else
                 {
-                    Console.Write("\nThe previous node sstores null value");
+                    Console.Write("\nThe previous node is null.");
                 }
             }
             Console.WriteLine($"\n{objnew_Node.data} inserted at position {position}");
+        }
+
+        public void DeleteFirstElement()
+        {
+            if (this.head == null)
+            {
+                Console.WriteLine("\nList is Empty");
+            }
+            this.head = this.head.next;
+            Console.WriteLine("\nRemoved first node");
         }
 
         public void Display()
@@ -77,7 +87,7 @@ namespace DataStructures
                 Console.WriteLine("\nLinkedList is empty");
                 return;
             }
-            Console.Write("\nLinked List ");
+            Console.Write("\nLinked List  ");
             while (temp != null)
             {
                 Console.Write(temp.data + " ");
