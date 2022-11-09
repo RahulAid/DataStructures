@@ -10,8 +10,8 @@ namespace DataStructures
 
             LinkedList objLinkedList = new LinkedList();
             objLinkedList.Add(56);
-            objLinkedList.InsertLast(30);
-            objLinkedList.InsertLast(70);
+            objLinkedList.Add(70);
+            objLinkedList.InsertBetween(30);
             objLinkedList.Display();
 
             Console.ReadLine();

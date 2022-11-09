@@ -29,26 +29,44 @@ namespace DataStructures
             Console.WriteLine($"\n{objNode.data} inserted into Linked List");
         }
 
-        public void InsertLast(int new_data)
+        public void InsertBetween(int new_data)
         {
+            int position = 2;
             Node objnew_Node = new Node(new_data);
             objnew_Node.data = new_data;
             objnew_Node.next = null;
-            if (head == null)
+
+            if (position < 1)
             {
-                head = objnew_Node;
+                Console.Write("\nposition should be >= 1.");
+            }
+            else if (position == 1)
+            {
+                objnew_Node.next = this.head;
+                this.head = objnew_Node;
             }
             else
             {
                 Node temp = new Node(new_data);
-                temp = head;
-                while (temp.next != null)
+                temp = this.head;
+                for (int i = 1; i < position - 1; i++)
                 {
-                    temp = temp.next;
+                    if (temp != null)
+                    {
+                        temp = temp.next;
+                    }
                 }
-                temp.next = objnew_Node;
+                if (temp != null)
+                {
+                    objnew_Node.next = temp.next;
+                    temp.next = objnew_Node;
+                }
+                else
+                {
+                    Console.Write("\nThe previous node sstores null value");
+                }
             }
-            Console.WriteLine($"\n{objnew_Node.data} is added at the Last");
+            Console.WriteLine($"\n{objnew_Node.data} inserted at position {position}");
         }
 
         public void Display()
@@ -59,7 +77,7 @@ namespace DataStructures
                 Console.WriteLine("\nLinkedList is empty");
                 return;
             }
-            Console.Write("\nLinked List => ");
+            Console.Write("\nLinked List ");
             while (temp != null)
             {
                 Console.Write(temp.data + " ");
